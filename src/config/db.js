@@ -12,6 +12,10 @@ export const getDb = () => {
 };
 
 export const connectDb = async () => {
+  if (pool) {
+    return; // Reuse existing connection pool for serverless environments
+  }
+
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {
     throw new Error("Missing DATABASE_URL in environment variables.");
