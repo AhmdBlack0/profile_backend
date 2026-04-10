@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL?.split(",").map((item) => item.trim()) || "*",
+    origin: ["https://rohaym.vercel.app", "https://profile-sable-psi.vercel.app"],
     credentials: true,
   })
 );
